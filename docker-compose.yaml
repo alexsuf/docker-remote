@@ -1,0 +1,18 @@
+version: '3.8'
+# ---------------------------------------------------
+# Подключение через TightVNC: host.docker.internal:5901
+# ---------------------------------------------------
+services:
+  remote:
+    image: alexsuf/remote
+    container_name: remote
+    restart: always
+    ports:
+      - 5901:5901
+    environment:
+      password: secret
+      TZ: Europe/Moscow
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./files:/mnt/files
